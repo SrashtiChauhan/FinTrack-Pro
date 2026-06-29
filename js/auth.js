@@ -102,8 +102,6 @@ if (registerForm) {
     setTimeout(() => {
       window.location.href = "login.html";
     }, 1000);
-
-    window.location.href = "login.html";
   });
 }
 
@@ -138,7 +136,6 @@ if (loginForm) {
     setTimeout(() => {
       window.location.href = "index.html";
     }, 1000);
-    window.location.href = "index.html";
   });
 }
 // Auto Fill Remember Me
