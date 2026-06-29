@@ -83,7 +83,6 @@ if (dashboardBtn && settingsBtn) {
     settingsPage.classList.add("active");
   });
 }
-
 let cashFlowChart;
 
 function updateChart() {
@@ -120,7 +119,7 @@ function updateChart() {
           data: [income, expense],
           backgroundColor: ["#22c55e", "#991b1b"],
           borderRadius: 8,
-          barThickness: 70,
+          barThickness: 65,
         },
       ],
     },
@@ -136,13 +135,16 @@ function updateChart() {
       },
 
       scales: {
-        y: {
-          beginAtZero: true,
-        },
-
         x: {
           grid: {
             display: false,
+          },
+        },
+
+        y: {
+          beginAtZero: true,
+          grid: {
+            color: "#e5e7eb",
           },
         },
       },
@@ -334,3 +336,21 @@ document
 document
   .getElementById("filterType")
   .addEventListener("change", filterTransactions);
+
+
+const darkMode = document.getElementById("darkMode");
+
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
+  darkMode.checked = true;
+}
+
+darkMode.addEventListener("change", () => {
+  if (darkMode.checked) {
+    document.body.classList.add("dark-mode");
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.body.classList.remove("dark-mode");
+    localStorage.setItem("theme", "light");
+  }
+});
