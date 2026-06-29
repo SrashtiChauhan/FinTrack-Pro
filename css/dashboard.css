@@ -612,38 +612,104 @@ td {
   background: #222;
 }
 
-.action-buttons {
-  display: flex;
-  gap: 10px;
+/* tables */
+
+.table-container table{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+
+.table-container th{
+    padding:14px 10px;
+    font-size:13px;
+    font-weight:700;
+    color:#64748b;
+    text-transform:uppercase;
+    text-align:center;
+}
+
+.table-container td{
+    padding:18px 10px;
+    font-size:16px;
+    color:#111827;
+    border-top:1px solid #eef2f7;
+    text-align:center;
+    vertical-align:middle;
+}
+
+/* Column widths */
+.table-container th:nth-child(1),
+.table-container td:nth-child(1){
+    width:18%;
+}
+
+.table-container th:nth-child(2),
+.table-container td:nth-child(2){
+    width:28%;
+}
+
+.table-container th:nth-child(3),
+.table-container td:nth-child(3){
+    width:20%;
+}
+
+.table-container th:nth-child(4),
+.table-container td:nth-child(4){
+    width:18%;
+}
+
+.table-container th:nth-child(5),
+.table-container td:nth-child(5){
+    width:16%;
+}
+/* Actions column */
+#transactionTable td:last-child{
+    text-align:center;
+    vertical-align:middle;
+}
+
+.action-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
 }
 
 .edit-btn,
-.delete-btn {
-  width: 36px;
-  height: 36px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.2s;
+.delete-btn{
+    width:34px;
+    height:34px;
+    border:none;
+    border-radius:8px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition:.2s ease;
 }
 
-.edit-btn {
-  background: #eff6ff;
-  color: #2563eb;
+.edit-btn{
+    background:#eef4ff;
+    color:#2563eb;
 }
 
-.edit-btn:hover {
-  background: #dbeafe;
+.edit-btn:hover{
+    background:#dbeafe;
 }
 
-.delete-btn {
-  background: #fef2f2;
-  color: #dc2626;
+.delete-btn{
+    background:#fff1f2;
+    color:#dc2626;
 }
 
-.delete-btn:hover {
-  background: #fee2e2;
+.delete-btn:hover{
+    background:#ffe4e6;
+}
+
+.edit-btn i,
+.delete-btn i{
+    font-size:14px;
+    line-height:1;
+    pointer-events:none;
 }
