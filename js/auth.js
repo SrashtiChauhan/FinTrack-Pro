@@ -146,3 +146,26 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("rememberMe").checked = true;
   }
 });
+// forgot password modal
+const forgotLink = document.querySelector(".forgot-password");
+const forgotModal = document.getElementById("forgotModal");
+const cancelReset = document.getElementById("cancelReset");
+
+if (forgotLink && forgotModal) {
+  forgotLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    forgotModal.classList.add("active");
+  });
+}
+
+if (cancelReset && forgotModal) {
+  cancelReset.addEventListener("click", () => {
+    forgotModal.classList.remove("active");
+  });
+}
+
+window.addEventListener("click", (e) => {
+  if (e.target === forgotModal) {
+    forgotModal.classList.remove("active");
+  }
+});

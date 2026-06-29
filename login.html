@@ -48,6 +48,51 @@
         <a href="register.html"> Register here </a>
       </p>
     </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgotModal">
+      <div class="modal-card">
+        <h2>Reset Password</h2>
+
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" id="forgotUsername" />
+        </div>
+
+        <div class="form-group">
+          <label>New Password</label>
+
+          <div class="password-box">
+            <input type="password" id="newPassword" />
+
+            <span id="toggleNewPassword" class="toggle-password">
+              <i class="fa-solid fa-eye"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Confirm Password</label>
+
+          <div class="password-box">
+            <input type="password" id="confirmNewPassword" />
+
+            <span id="toggleConfirmNewPassword" class="toggle-password">
+              <i class="fa-solid fa-eye"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="modal-buttons">
+          <button id="cancelReset" class="cancel-btn">Cancel</button>
+
+          <button id="resetPasswordBtn" class="login-btn">
+            Reset Password
+          </button>
+        </div>
+      </div>
+    </div>
+
     <div id="toast"></div>
     <script src="js/auth.js"></script>
   </body>
