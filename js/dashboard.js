@@ -7,7 +7,8 @@ if (!currentUser) {
 const username = document.getElementById("currentUsername");
 
 if (username) {
-  username.textContent = currentUser;
+  const savedName = localStorage.getItem("profileName");
+  username.textContent = savedName || currentUser;
 }
 
 const logoutBtn = document.querySelector(".logout-btn");
@@ -168,6 +169,8 @@ function updateChart() {
 }
 
 function updateDashboard() {
+  const currency = localStorage.getItem("currencySymbol") || "$";
+
   const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
   let income = 0;
@@ -183,14 +186,18 @@ function updateDashboard() {
 
   const balance = income - expense;
 
-  document.getElementById("balance").textContent = `$${balance.toFixed(2)}`;
-  document.getElementById("income").textContent = `$${income.toFixed(2)}`;
-  document.getElementById("expense").textContent = `$${expense.toFixed(2)}`;
+  document.getElementById("balance").textContent =
+    `${currency}${balance.toFixed(2)}`;
+  document.getElementById("income").textContent =
+    `${currency}${income.toFixed(2)}`;
+  document.getElementById("expense").textContent =
+    `${currency}${expense.toFixed(2)}`;
   document.getElementById("transactionCount").textContent = transactions.length;
   updateChart();
 }
 
 function renderTransactions(list = null) {
+  const currency = localStorage.getItem("currencySymbol") || "$";
   const transactions =
     list || JSON.parse(localStorage.getItem("transactions")) || [];
   const table = document.getElementById("transactionTable");
@@ -214,7 +221,7 @@ function renderTransactions(list = null) {
             <td>${transaction.date}</td>
             <td>${transaction.description}</td>
             <td>${transaction.category}</td>
-            <td>${transaction.type === "income" ? "+" : "-"}$${transaction.amount}</td>
+            <td>${transaction.type === "income" ? "+" : "-"}${currency}${transaction.amount}</td>
             <td>
                 <div class="action-buttons">
                     <button class="edit-btn" data-id="${transaction.id}">
@@ -274,7 +281,6 @@ function deleteTransaction(id) {
   transactions = transactions.filter((transaction) => transaction.id !== id);
 
   localStorage.setItem("transactions", JSON.stringify(transactions));
-
   renderTransactions();
   updateDashboard();
   updateChart();
@@ -345,12 +351,8 @@ if (transactionForm) {
 renderTransactions();
 updateDashboard();
 updateChart();
-document
-  .getElementById("searchInput")
-  .addEventListener("input", filterTransactions);
-document
-  .getElementById("filterType")
-  .addEventListener("change", filterTransactions);
+document.getElementById("searchInput").addEventListener("input", filterTransactions);
+document.getElementById("filterType").addEventListener("change", filterTransactions);
 
 const resetBtn = document.querySelector(".reset-btn");
 
@@ -390,3 +392,53 @@ darkMode.addEventListener("change", () => {
 
   updateChart();
 });
+
+const saveProfileBtn = document.querySelector(".settings-page .save-btn");
+
+const fullNameInput = document.getElementById("fullName");
+const currencySelect = document.getElementById("currency");
+
+function loadProfile() {
+  const savedName = localStorage.getItem("profileName");
+  const savedCurrency = localStorage.getItem("currencySymbol");
+
+  if (savedName) {
+    fullNameInput.value = savedName;
+
+    username.textContent = savedName;
+  } else {
+    fullNameInput.value = currentUser;
+
+    username.textContent = currentUser;
+  }
+
+  if (savedCurrency) {
+    currencySelect.value = savedCurrency;
+  }
+}
+saveProfileBtn.addEventListener("click", () => {
+  const name = fullNameInput.value.trim();
+
+  if (name === "") {
+    alert("Please enter your name.");
+    return;
+  }
+
+  localStorage.setItem("profileName", name);
+  localStorage.setItem("currencySymbol", currencySelect.value);
+
+  username.textContent = name;
+
+  updateDashboard();
+  renderTransactions();
+  updateChart();
+
+  dashboardBtn.classList.add("active");
+  settingsBtn.classList.remove("active");
+
+  dashboardPage.style.display = "block";
+  settingsPage.classList.remove("active");
+
+  alert("Profile updated successfully.");
+});
+loadProfile();
