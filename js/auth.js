@@ -169,3 +169,85 @@ window.addEventListener("click", (e) => {
     forgotModal.classList.remove("active");
   }
 });
+// reset password
+const resetPasswordBtn = document.getElementById("resetPasswordBtn");
+
+if (resetPasswordBtn) {
+  resetPasswordBtn.addEventListener("click", () => {
+    const username = document.getElementById("forgotUsername").value.trim();
+
+    const newPassword = document.getElementById("newPassword").value;
+
+    const confirmNewPassword =
+      document.getElementById("confirmNewPassword").value;
+
+    if (username === "" || newPassword === "" || confirmNewPassword === "") {
+      showToast("Please fill all fields!", "error");
+      return;
+    }
+
+    if (newPassword !== confirmNewPassword) {
+      showToast("Passwords do not match!", "error");
+      return;
+    }
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const userIndex = users.findIndex((user) => user.username === username);
+
+    if (userIndex === -1) {
+      showToast("Username not found!", "error");
+      return;
+    }
+
+    users[userIndex].password = newPassword;
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    showToast("Password updated successfully!", "success");
+
+    forgotModal.classList.remove("active");
+
+    document.getElementById("forgotUsername").value = "";
+    document.getElementById("newPassword").value = "";
+    document.getElementById("confirmNewPassword").value = "";
+  });
+}
+
+// New Password
+const newPassword = document.getElementById("newPassword");
+const toggleNewPassword = document.getElementById("toggleNewPassword");
+
+if (newPassword && toggleNewPassword) {
+  const eye = toggleNewPassword.querySelector("i");
+
+  toggleNewPassword.addEventListener("click", () => {
+    if (newPassword.type === "password") {
+      newPassword.type = "text";
+      eye.classList.replace("fa-eye", "fa-eye-slash");
+    } else {
+      newPassword.type = "password";
+      eye.classList.replace("fa-eye-slash", "fa-eye");
+    }
+  });
+}
+
+// Confirm New Password
+const confirmNewPassword = document.getElementById("confirmNewPassword");
+const toggleConfirmNewPassword = document.getElementById(
+  "toggleConfirmNewPassword",
+);
+
+if (confirmNewPassword && toggleConfirmNewPassword) {
+  const eye = toggleConfirmNewPassword.querySelector("i");
+
+  toggleConfirmNewPassword.addEventListener("click", () => {
+    if (confirmNewPassword.type === "password") {
+      confirmNewPassword.type = "text";
+      eye.classList.replace("fa-eye", "fa-eye-slash");
+    } else {
+      confirmNewPassword.type = "password";
+      eye.classList.replace("fa-eye-slash", "fa-eye");
+    }
+  });
+}

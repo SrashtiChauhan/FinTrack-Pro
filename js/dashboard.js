@@ -64,3 +64,28 @@ if (dashboardBtn && settingsBtn) {
     settingsPage.classList.add("active");
   });
 }
+// transaction
+
+const transactionForm = document.getElementById("transactionForm");
+
+if (transactionForm) {
+  transactionForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const transaction = {
+      id: Date.now(),
+      type: document.getElementById("type").value,
+      description: document.getElementById("description").value.trim(),
+      amount: Number(document.getElementById("amount").value),
+      date: document.getElementById("date").value,
+      category: document.getElementById("category").value,
+    };
+
+    const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+    transactions.push(transaction);
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+    transactionForm.reset();
+    modal.classList.remove("active");
+    console.log(transactions);
+  });
+}
