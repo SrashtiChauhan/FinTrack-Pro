@@ -1,128 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
-<body>
-   <div class="container">
-    <aside class="sidebar"> 
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
         <!-- logo -->
         <div class="logo">
-            <i class="fa-solid fa-layer-group"></i>
-            <div>
-            <h2> FinTrack Pro</h2>
+          <i class="fa-solid fa-layer-group"></i>
+          <div>
+            <h2>FinTrack Pro</h2>
             <p>Enterprise Finance</p>
-            </div>
+          </div>
         </div>
 
         <!-- navigation -->
-         <nav> 
-            <ul>
-                <li class="active">
-                    <i class="fa-solid fa-border-all"></i>
-                    <span>Dashboard</span>
-                </li>
-                 <li>
-                    <i class="fa-solid fa-gear"></i>
-                    <span>Settings</span>
-                </li>
-            </ul>
-            
-         </nav>
+        <nav>
+          <ul>
+            <li class="active">
+              <i class="fa-solid fa-border-all"></i>
+              <span>Dashboard</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-gear"></i>
+              <span>Settings</span>
+            </li>
+          </ul>
+        </nav>
 
-         <!-- Bottom-btn -->
-          <button class="add-btn">
-            <i class="fa-solid fa-plus"></i>
-            <span>Add Transaction</span>
-          </button>
-
-    </aside>
-    <main class="main-content">
+        <!-- Bottom-btn -->
+        <button class="add-btn">
+          <i class="fa-solid fa-plus"></i>
+          <span>Add Transaction</span>
+        </button>
+      </aside>
+      <main class="main-content">
         <header class="topbar">
-        <div class="user-info">
+          <div class="user-info">
             <span class="username">Srashti</span>
             <button class="logout-btn">Logout</button>
-        </div>
+          </div>
         </header>
 
         <!-- dashoard -->
         <section class="dashboard">
-            <h1>Financial Overview</h1>
-        <p class="subtitle">
-            Real-time tracking application
-
-        </p>
-        <div class="cards">
+          <h1>Financial Overview</h1>
+          <p class="subtitle">Real-time tracking application</p>
+          <div class="cards">
             <div class="card">
-                <div class="card-icon blue">
-                    <i class="fa-solid fa-building-columns"></i>
-                </div>
-                <p class="card-title">Current Balance</p>
-                <h2>$0.00</h2>
+              <div class="card-icon blue">
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+              <p class="card-title">Current Balance</p>
+              <h2>$0.00</h2>
             </div>
             <div class="card">
-                <div class="card-icon green">
-                    <i class="fa-solid fa-arrow-trend-up"></i>
-                </div>
-                <p class="card-title">Total Income</p>
-                <h2>$0.00</h2>
+              <div class="card-icon green">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+              </div>
+              <p class="card-title">Total Income</p>
+              <h2>$0.00</h2>
             </div>
             <div class="card">
-                <div class="card-icon red">
-                    <i class="fa-solid fa-arrow-trend-down"></i>
-                </div>
-                <p class="card-title">Total Expense</p>
-                <h2>$0.00</h2>
+              <div class="card-icon red">
+                <i class="fa-solid fa-arrow-trend-down"></i>
+              </div>
+              <p class="card-title">Total Expense</p>
+              <h2>$0.00</h2>
             </div>
             <div class="card">
-                <div class="card-icon purple">
-                     <i class="fa-solid fa-piggy-bank"></i>
-                </div>
-                <p class="card-title">Transactions</p>
-                <h2>0</h2>
+              <div class="card-icon purple">
+                <i class="fa-solid fa-piggy-bank"></i>
+              </div>
+              <p class="card-title">Transactions</p>
+              <h2>0</h2>
             </div>
+          </div>
 
-        </div>
-
-        <div class="dashboard-grid">
-
-            <!-- left-side -->
+          <div class="dashboard-grid">
+            <!-- LEFT COLUMN -->
             <div class="main-column">
-                <div class="chart-panel">
-                    <h2>Cash Flow Analysis</h2>
-                    
-                    <div class="chart-placeholder">
-                        Chart will come here
-                    </div>
-                </div>
-                <div class="panel-table">
-                    <h2>All Transactions</h2>
-                    <div class="table-placeholder">
-                        Table come here
-                    </div>
-                </div>
-            </div>
-            <!-- right side -->
-             <div class="side-column">
-                <div class="panel">
-                    <h2>Preferences</h2>
-                    <div class="preference-item">
-                        <span>Dark Mode</span>
-                        <input type="checkbox">
-                    </div>
-                    <div class="reset-btn">Reset All Data</div>
-                </div>
-             </div>
-        </div>
+              <!-- Cash Flow Card -->
+              <div class="panel chart-panel">
+                <h2>Cash Flow Analysis</h2>
 
-        
-    </section>
-    </main>
-   </div>
-    <script src="script.js"></script> 
-</body>
+                <div class="chart-area">
+                  <!-- Replace with Chart.js later -->
+                  <div class="chart-placeholder">Chart will come here</div>
+                </div>
+              </div>
+
+              <!-- Transactions Card -->
+              <div class="panel table-panel">
+                <h2>All Transactions</h2>
+
+                <div class="table-controls">
+                  <input
+                    type="text"
+                    placeholder="Search transactions..."
+                    class="search-input"
+                  />
+
+                  <select class="filter-select">
+                    <option>All Types</option>
+                    <option>Income</option>
+                    <option>Expense</option>
+                  </select>
+                </div>
+
+                <div class="table-container">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <!-- Transactions will come here -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="side-column">
+              <div class="panel">
+                <h2>Preferences</h2>
+
+                <div class="preference-item">
+                  <span>Dark Mode</span>
+
+                  <input type="checkbox" id="darkMode" />
+                </div>
+
+                <button class="reset-btn">Reset All Data</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
