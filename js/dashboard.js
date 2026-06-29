@@ -112,7 +112,100 @@ function renderTransactions() {
         </tr>
     `;
   });
+  document.querySelectorAll(".delete-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      const id = Number(button.dataset.id);
+
+      if (confirm("Delete this transaction?")) {
+        deleteTransaction(id);
+      }
+    });
+  });
 }
+
+//delete trans
+function deleteTransaction(id) {
+  let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+
+  transactions = transactions.filter((transaction) => transaction.id !== id);
+
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+
+  renderTransactions();
+  updateDashboard();
+}
+
+//search
+function filterTransactions() {
+  const search = document.getElementById("searchInput").value.toLowerCase();
+
+  const type = document.getElementById("filterType").value;
+
+  const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+
+  const filtered = transactions.filter((transaction) => {
+    const matchSearch =
+      transaction.description.toLowerCase().includes(search) ||
+      transaction.category.toLowerCase().includes(search);
+
+    const matchType =
+      type === "All Types" || transaction.type === type.toLowerCase();
+
+    return matchSearch && matchType;
+  });
+
+  renderFilteredTransactions(filtered);
+}
+function filterTransactions(){
+    const search=document.getElementById("searchInput").value.toLowerCase();
+    const type=document.getElementById("filterType").value;
+    const transactions=JSON.parse(localStorage.getItem("transactions"))||[];
+
+    const filtered=transactions.filter(transaction=>{
+        const matchSearch=
+            transaction.description.toLowerCase().includes(search) ||
+            transaction.category.toLowerCase().includes(search);
+
+        const matchType=
+            type==="All Types" ||
+            transaction.type===type.toLowerCase();
+
+        return matchSearch && matchType;
+    });
+
+    renderFilteredTransactions(filtered);
+}
+function renderFilteredTransactions(transactions){
+    const table=document.getElementById("transactionTable");
+    table.innerHTML="";
+
+    transactions.forEach(transaction=>{
+        table.innerHTML+=`
+        <tr>
+            <td>${transaction.date}</td>
+            <td>${transaction.description}</td>
+            <td>${transaction.category}</td>
+            <td>${transaction.type==="income"?"+":"-"}$${transaction.amount}</td>
+            <td>
+                <button class="delete-btn" data-id="${transaction.id}">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+        `;
+    });
+
+    document.querySelectorAll(".delete-btn").forEach(button=>{
+        button.addEventListener("click",()=>{
+            const id=Number(button.dataset.id);
+
+            if(confirm("Delete this transaction?")){
+                deleteTransaction(id);
+            }
+        });
+    });
+}
+
 // transaction
 
 const transactionForm = document.getElementById("transactionForm");
@@ -142,3 +235,5 @@ if (transactionForm) {
 }
 renderTransactions();
 updateDashboard();
+document.getElementById("searchInput").addEventListener("input",filterTransactions);
+document.getElementById("filterType").addEventListener("change",filterTransactions);
