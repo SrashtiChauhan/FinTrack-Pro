@@ -46,7 +46,10 @@
         <header class="topbar">
           <div class="user-info">
             <span class="username">Srashti</span>
-            <button class="logout-btn">Logout</button>
+            <button class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
           </div>
         </header>
 
@@ -148,12 +151,15 @@
 
                 <div class="preference-item">
                   <span>Dark Mode</span>
-                  <input type="checkbox" id="darkMode" />
+                  <label class="switch">
+                    <input type="checkbox" id="darkMode" />
+                    <span class="slider"></span>
+                  </label>
                 </div>
 
                 <button class="reset-btn">
-                    <i class="fa-solid fa-trash"></i>
-                    Reset All Data
+                  <i class="fa-solid fa-trash"></i>
+                  <span>Reset All Data</span>
                 </button>
               </div>
             </div>

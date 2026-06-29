@@ -96,10 +96,13 @@ nav li:hover{
     font-size:16px;
     transition: .3s;
     margin-top: auto;
+    font-weight:600;
+    letter-spacing:.2px;
 
 }
 .add-btn:hover{
-    background:#333;
+    
+    transform:translateY(-2px);
 }
 .topbar{
     display:flex;
@@ -122,6 +125,9 @@ nav li:hover{
     color:#111827;
 }
 .logout-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
     padding:10px 18px;
     border:1px solid #d1d5db;
     border-radius:8px;
@@ -174,9 +180,9 @@ nav li:hover{
 }
 
 .card h2{
-    font-size:34px;
+    font-size:38px;
     color:#111827;
-    font-weight: 700;
+    font-weight: 800;
 }
 .card-title{
     color:#6b7280;
@@ -236,9 +242,9 @@ nav li:hover{
     border-radius:16px;
     padding:22px;
 }
-
 .panel h2{
-    font-size:22px;
+    font-size:20px;
+    font-weight:700;
     color:#111827;
     margin-bottom:20px;
 }
@@ -305,11 +311,11 @@ table{
 }
 
 th{
-    text-align:left;
-    padding:14px 10px;
-    border-bottom:1px solid #e5e7eb;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.4px;
+    text-transform:uppercase;
     color:#6b7280;
-    font-size:14px;
 }
 
 td{
@@ -323,14 +329,62 @@ td{
     align-items:center;
     margin-bottom:25px;
 }
+.switch{
+    position:relative;
+    display:inline-block;
+    width:46px;
+    height:26px;
+}
+
+.switch input{
+    opacity:0;
+    width:0;
+    height:0;
+}
+
+.slider{
+    position:absolute;
+    inset:0;
+    background:#d1d5db;
+    border-radius:50px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.slider::before{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    left:3px;
+    top:3px;
+    background:#fff;
+    border-radius:50%;
+    transition:.3s;
+    box-shadow:0 2px 6px rgba(0,0,0,.15);
+}
+
+.switch input:checked + .slider{
+    background:#2563eb;
+}
+
+.switch input:checked + .slider::before{
+    transform:translateX(20px);
+}
 
 .reset-btn{
     width:100%;
-    padding:12px;
+    height:48px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
     border:1px solid #ef4444;
     background:#fff5f5;
     color:#dc2626;
     border-radius:8px;
+    font-size:15px;
+    font-weight:600;
     cursor:pointer;
     transition:.3s;
 }
@@ -444,8 +498,9 @@ td{
 
 #transactionForm input:focus,
 #transactionForm select:focus{
-    border-color:#030405;
     
+   border-color:#000103;
+   box-shadow:0 0 0 3px rgba(37,99,235,.12);
 }
 
 /* save-btn */
