@@ -170,32 +170,6 @@ currencySymbol
 
 ---
 
-# 🛠️ Installation
-
-Clone the repository
-
-```bash
-git clone https://github.com/your-username/FinTrack-Pro.git
-```
-
-Go into the project
-
-```bash
-cd FinTrack-Pro
-```
-
-Open
-
-```
-login.html
-```
-
-or
-
-Use VS Code Live Server.
-
----
-
 # 🤝 Contributing
 
 Contributions are welcome.
