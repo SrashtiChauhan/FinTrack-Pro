@@ -100,39 +100,50 @@ function updateChart() {
     }
   });
 
-  const ctx = document.getElementById("cashFlowChart");
+  const canvas = document.getElementById("cashFlowChart");
 
-  if (!ctx) return;
+  if (!canvas) return;
 
   if (cashFlowChart) {
     cashFlowChart.destroy();
   }
 
-  cashFlowChart = new Chart(ctx, {
-    type: "doughnut",
+  cashFlowChart = new Chart(canvas, {
+    type: "bar",
 
     data: {
-      labels: ["Income", "Expense"],
+      labels: ["Income", "Expenses"],
 
       datasets: [
         {
+          label: "Amount",
           data: [income, expense],
-
-          backgroundColor: ["#22c55e", "#ef4444"],
-
-          borderWidth: 0,
+          backgroundColor: ["#22c55e", "#991b1b"],
+          borderRadius: 8,
+          barThickness: 70,
         },
       ],
     },
 
     options: {
       responsive: true,
-
       maintainAspectRatio: false,
 
       plugins: {
         legend: {
-          position: "bottom",
+          display: false,
+        },
+      },
+
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+
+        x: {
+          grid: {
+            display: false,
+          },
         },
       },
     },
