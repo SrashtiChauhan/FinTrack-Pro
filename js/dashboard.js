@@ -70,6 +70,25 @@ if (dashboardBtn && settingsBtn) {
     settingsPage.classList.add("active");
   });
 }
+function updateDashboard() {
+  const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+
+  let income = 0;
+  let expense = 0;
+
+  transactions.forEach((transaction) => {
+    if (transaction.type === "income") {
+      income += transaction.amount;
+    } else {
+      expense += transaction.amount;
+    }
+  });
+  const balance = income - expense;
+  document.getElementById("balance").textContent = `$${balance.toFixed(2)}`;
+  document.getElementById("income").textContent = `$${income.toFixed(2)}`;
+  document.getElementById("expense").textContent = `$${expense.toFixed(2)}`;
+  document.getElementById("transactionCount").textContent = transactions.length;
+}
 
 function renderTransactions() {
   const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
@@ -118,5 +137,8 @@ if (transactionForm) {
     dateInput.value = new Date().toISOString().split("T")[0];
     modal.classList.remove("active");
     renderTransactions();
+    updateDashboard();
   });
 }
+renderTransactions();
+updateDashboard();
