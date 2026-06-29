@@ -96,8 +96,7 @@
                 <h2>Cash Flow Analysis</h2>
 
                 <div class="chart-area">
-                  <!-- Replace with Chart.js later -->
-                  <div class="chart-placeholder">Chart will come here</div>
+                  <canvas id="cashFlowChart"></canvas>
                 </div>
               </div>
 
@@ -266,10 +265,13 @@
             </select>
           </div>
 
-          <button type="submit" class="save-btn"   id="saveTransactionBtn" >Save Transaction</button>
+          <button type="submit" class="save-btn" id="saveTransactionBtn">
+            Save Transaction
+          </button>
         </form>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/dashboard.js"></script>
   </body>
 </html>

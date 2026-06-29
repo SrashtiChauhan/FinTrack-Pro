@@ -84,6 +84,61 @@ if (dashboardBtn && settingsBtn) {
   });
 }
 
+let cashFlowChart;
+
+function updateChart() {
+  const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+
+  let income = 0;
+  let expense = 0;
+
+  transactions.forEach((transaction) => {
+    if (transaction.type === "income") {
+      income += transaction.amount;
+    } else {
+      expense += transaction.amount;
+    }
+  });
+
+  const ctx = document.getElementById("cashFlowChart");
+
+  if (!ctx) return;
+
+  if (cashFlowChart) {
+    cashFlowChart.destroy();
+  }
+
+  cashFlowChart = new Chart(ctx, {
+    type: "doughnut",
+
+    data: {
+      labels: ["Income", "Expense"],
+
+      datasets: [
+        {
+          data: [income, expense],
+
+          backgroundColor: ["#22c55e", "#ef4444"],
+
+          borderWidth: 0,
+        },
+      ],
+    },
+
+    options: {
+      responsive: true,
+
+      maintainAspectRatio: false,
+
+      plugins: {
+        legend: {
+          position: "bottom",
+        },
+      },
+    },
+  });
+}
+
 function updateDashboard() {
   const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
