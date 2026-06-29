@@ -1,20 +1,20 @@
+//login
 const passwordInput = document.getElementById("loginPassword");
 const togglePassword = document.getElementById("togglePassword");
-const eyeIcon = togglePassword.querySelector("i");
 
-togglePassword.addEventListener("click", () => {
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
+if (passwordInput && togglePassword) {
+  const eyeIcon = togglePassword.querySelector("i");
 
-    eyeIcon.classList.remove("fa-eye");
-    eyeIcon.classList.add("fa-eye-slash");
-  } else {
-    passwordInput.type = "password";
-
-    eyeIcon.classList.remove("fa-eye-slash");
-    eyeIcon.classList.add("fa-eye");
-  }
-});
+  togglePassword.addEventListener("click", () => {
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      eyeIcon.classList.replace("fa-eye", "fa-eye-slash");
+    } else {
+      passwordInput.type = "password";
+      eyeIcon.classList.replace("fa-eye-slash", "fa-eye");
+    }
+  });
+}
 // Register Password
 const registerPassword = document.getElementById("registerPassword");
 const toggleRegisterPassword = document.getElementById(
