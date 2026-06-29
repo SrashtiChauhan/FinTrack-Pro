@@ -17,3 +17,28 @@ window.onclick = (e)=>{
         modal.classList.remove("active");
     }
 }
+const dashboardBtn = document.getElementById("dashboardBtn");
+const settingsBtn = document.getElementById("settingsBtn");
+
+const dashboardPage = document.getElementById("dashboardPage");
+const settingsPage = document.getElementById("settingsPage");
+
+dashboardBtn.addEventListener("click", () => {
+
+    dashboardBtn.classList.add("active");
+    settingsBtn.classList.remove("active");
+
+    dashboardPage.style.display = "block";
+    settingsPage.classList.remove("active");
+
+});
+
+settingsBtn.addEventListener("click", () => {
+
+    settingsBtn.classList.add("active");
+    dashboardBtn.classList.remove("active");
+
+    dashboardPage.style.display = "none";
+    settingsPage.classList.add("active");
+
+});

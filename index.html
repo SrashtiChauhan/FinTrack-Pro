@@ -25,11 +25,11 @@
         <!-- navigation -->
         <nav>
           <ul>
-            <li class="active">
+            <li class="active" id="dashboardBtn">
               <i class="fa-solid fa-border-all"></i>
               <span>Dashboard</span>
             </li>
-            <li>
+            <li id="settingsBtn">
               <i class="fa-solid fa-gear"></i>
               <span>Settings</span>
             </li>
@@ -54,7 +54,7 @@
         </header>
 
         <!-- dashoard -->
-        <section class="dashboard">
+        <section class="dashboard" id="dashboardPage">
           <h1>Financial Overview</h1>
           <p class="subtitle">Real-time tracking application</p>
           <div class="cards">
@@ -165,6 +165,50 @@
             </div>
           </div>
         </section>
+
+        <!-- settings -->
+
+        <section class="settings-page" id="settingsPage">
+    <h1>Settings</h1>
+    <p class="subtitle">
+        Manage your account profile and application preferences
+    </p>
+
+    <div class="panel settings-panel">
+
+        <h2>Profile Details</h2>
+
+        <div class="settings-grid">
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Enter your name"
+                />
+            </div>
+
+            <div class="form-group">
+                <label>Primary Currency</label>
+
+                <select id="currency">
+                    <option>USD ($)</option>
+                    <option>INR (₹)</option>
+                    <option>EUR (€)</option>
+                    <option>GBP (£)</option>
+                </select>
+            </div>
+
+        </div>
+
+        <button class="save-btn">
+            <i class="fa-solid fa-floppy-disk"></i>
+            Save Changes
+        </button>
+
+    </div>
+</section>
       </main>
     </div>
     <div class="modal" id="transactionModal">
