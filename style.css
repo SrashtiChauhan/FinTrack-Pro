@@ -16,12 +16,59 @@ body{
     min-height:100vh;
 }
 .sidebar {
-    width:240px;
+    width:230px;
     background:white;
     border-right:1px solid #ddd;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px 20px;
+
+}
+.logo h2 {
+    font-size: 28px;
+    color:#1d4ed8;
+}
+.logo p{
+    color:gray;
+    margin-top:5px;
+    font-size:14px;
 }
 .main-content {
     flex:1;
     padding:30px;
 
+}
+nav{
+    margin-top:40px;
+}
+nav ul{
+    list-style:none;
+}
+nav li{
+    padding:15px;
+    border-radius: 10px;
+    cursor:pointer;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+nav li:hover{
+    background:#dbeafe;
+}
+.active{
+    background:#2563eb;
+    color:white;
+}
+.add-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:black;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+.add-btn:hover{
+    background:#333;
 }
