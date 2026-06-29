@@ -159,6 +159,7 @@ function updateDashboard() {
   document.getElementById("income").textContent = `$${income.toFixed(2)}`;
   document.getElementById("expense").textContent = `$${expense.toFixed(2)}`;
   document.getElementById("transactionCount").textContent = transactions.length;
+  updateChart();
 }
 
 function renderTransactions(list = null) {
@@ -248,6 +249,7 @@ function deleteTransaction(id) {
 
   renderTransactions();
   updateDashboard();
+  updateChart();
 }
 
 function filterTransactions() {
@@ -308,12 +310,13 @@ if (transactionForm) {
 
     renderTransactions();
     updateDashboard();
+    updateChart();
   });
 }
 
 renderTransactions();
 updateDashboard();
-
+updateChart();
 document
   .getElementById("searchInput")
   .addEventListener("input", filterTransactions);
