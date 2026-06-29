@@ -259,20 +259,40 @@ nav li:hover{
     margin-bottom:20px;
 }
 
-.search-input{
+.search-box{
     flex:1;
-    padding:12px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:0 14px;
+    height:48px;
     border:1px solid #d1d5db;
     border-radius:8px;
+    background:#fff;
+}
+
+.search-box i{
+    color:#6b7280;
+    font-size:15px;
+}
+
+.search-input{
+    flex:1;
+    height:100%;
+    border:none;
     outline:none;
+    background:transparent;
+    font-size:15px;
 }
 
 .filter-select{
     width:220px;
-    padding:12px;
+    padding:0 14px;
     border:1px solid #d1d5db;
     border-radius:8px;
+    height:48px;
     outline:none;
+    background:#fff;
 }
 
 .table-container{
@@ -317,4 +337,132 @@ td{
 
 .reset-btn:hover{
     background:#fee2e2;
+}
+
+/* modal */
+
+.modal{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.45);
+    z-index:1000;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-content{
+    width:420px;
+    max-width:90%;
+    background:#fff;
+    border-radius:16px;
+    padding:24px;
+    animation:popup .25s ease;
+}
+
+@keyframes popup{
+    from{
+        opacity:0;
+        transform:translateY(-20px) scale(.97);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* header */
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:24px;
+}
+
+.modal-header h2{
+    font-size:22px;
+    font-weight:700;
+    color:#111827;
+}
+
+.close{
+    font-size:30px;
+    color:#6b7280;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.close:hover{
+    color:#111827;
+}
+
+/* form */
+
+#transactionForm{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:18px;
+}
+
+.form-group label{
+    font-size:15px;
+    font-weight:500;
+    color:#111827;
+    margin-bottom:8px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-bottom:18px;
+}
+
+#transactionForm input,
+#transactionForm select{
+    width:100%;
+    height:48px;
+    padding:0 14px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-size:15px;
+    background:#fff;
+    color:#111827;
+    outline:none;
+    transition:.2s;
+}
+
+#transactionForm input:focus,
+#transactionForm select:focus{
+    border-color:#030405;
+    
+}
+
+/* save-btn */
+.save-btn{
+    width:100%;
+    height:48px;
+    margin-top:8px;
+    border:none;
+    border-radius:8px;
+    background:#01040a;
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.save-btn:hover{
+    background:#303038;box-shadow:0 0 0 3px rgba(37,99,235,.12);
 }
