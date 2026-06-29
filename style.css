@@ -25,14 +25,26 @@ body{
     padding: 25px 20px;
 
 }
-.logo h2 {
-    font-size: 28px;
-    color:#1d4ed8;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
+
+.logo i{
+    font-size:28px;
+    color:#111827;
+}
+
+.logo h2{
+    font-size:22px;
+    color:#111827;
+}
+
 .logo p{
-    color:gray;
-    margin-top:5px;
-    font-size:14px;
+    font-size:13px;
+    color:#6b7280;
+    margin-top:3px;
 }
 .main-content{
     flex:1;
@@ -53,10 +65,10 @@ nav li{
     transition: 0.3s;
 }
 nav li:hover{
-    background:#dbeafe;
+    background:#0b3d6e;
 }
 .active{
-    background:#2563eb;
+    background:#080d18;
     color:white;
 }
 .add-btn{
