@@ -639,29 +639,21 @@ td {
 }
 
 /* Column widths */
-.table-container th:nth-child(1),
-.table-container td:nth-child(1){
-    width:18%;
+.table-container table{
+    width:100%;
+    border-collapse:collapse;
 }
 
-.table-container th:nth-child(2),
-.table-container td:nth-child(2){
-    width:28%;
+.table-container th,
+.table-container td{
+    padding:18px 12px;
+    text-align:left;
 }
 
-.table-container th:nth-child(3),
-.table-container td:nth-child(3){
-    width:20%;
-}
-
-.table-container th:nth-child(4),
-.table-container td:nth-child(4){
-    width:18%;
-}
-
-.table-container th:nth-child(5),
-.table-container td:nth-child(5){
-    width:16%;
+.table-container th:last-child,
+.table-container td:last-child{
+    text-align:center;
+    width:120px;
 }
 /* Actions column */
 #transactionTable td:last-child{

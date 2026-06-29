@@ -103,13 +103,16 @@ function renderTransactions() {
             <td>${transaction.description}</td>
             <td>${transaction.category}</td>
             <td>${transaction.type === "income" ? "+" : "-"}$${transaction.amount}</td>
-            <td class="action-buttons">
-                <button class="edit-btn" data-id="${transaction.id}">
-                    <i class="fa-solid fa-pen"></i>
-                </button>
-                <button class="delete-btn" data-id="${transaction.id}">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
+            <td>
+                <div class="action-buttons">
+                    <button class="edit-btn" data-id="${transaction.id}">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button class="delete-btn" data-id="${transaction.id}">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            
             </td>
         </tr>
         `;
