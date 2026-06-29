@@ -107,6 +107,11 @@ function updateChart() {
     cashFlowChart.destroy();
   }
 
+  const isDark = document.body.classList.contains("dark-mode");
+
+  const textColor = isDark ? "#f3f4f6" : "#374151";
+
+  const gridColor = isDark ? "rgba(255,255,255,0.12)" : "#e5e7eb";
   cashFlowChart = new Chart(canvas, {
     type: "bar",
 
@@ -130,12 +135,17 @@ function updateChart() {
 
       plugins: {
         legend: {
-          display: false,
+          display: true,
+          labels: {
+            color: textColor,
+          },
         },
       },
-
       scales: {
         x: {
+          ticks: {
+            color: textColor,
+          },
           grid: {
             display: false,
           },
@@ -143,8 +153,13 @@ function updateChart() {
 
         y: {
           beginAtZero: true,
+
+          ticks: {
+            color: textColor,
+          },
+
           grid: {
-            color: "#e5e7eb",
+            color: gridColor,
           },
         },
       },
@@ -337,6 +352,25 @@ document
   .getElementById("filterType")
   .addEventListener("change", filterTransactions);
 
+const resetBtn = document.querySelector(".reset-btn");
+
+if (resetBtn) {
+  resetBtn.addEventListener("click", () => {
+    const confirmReset = confirm(
+      "This will permanently delete all transactions.\n\nAre you sure?",
+    );
+
+    if (!confirmReset) return;
+
+    localStorage.removeItem("transactions");
+
+    renderTransactions();
+    updateDashboard();
+    updateChart();
+
+    alert("All data has been reset successfully.");
+  });
+}
 
 const darkMode = document.getElementById("darkMode");
 
@@ -353,4 +387,6 @@ darkMode.addEventListener("change", () => {
     document.body.classList.remove("dark-mode");
     localStorage.setItem("theme", "light");
   }
+
+  updateChart();
 });
