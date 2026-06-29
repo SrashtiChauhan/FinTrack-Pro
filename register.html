@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - FinTrack Pro</title>
+
+    <link rel="stylesheet" href="css/auth.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="auth-card">
+      <h1>Create Account</h1>
+
+      <p class="subtitle">Join FinTrack Pro</p>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <label>Username</label>
+
+          <input
+            type="text"
+            id="registerUsername"
+            placeholder="Choose a username"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+
+          <div class="password-box">
+            <input
+              type="password"
+              id="registerPassword"
+              placeholder="Enter password"
+              required
+            />
+
+            <span class="toggle-password" id="toggleRegisterPassword">
+              <i class="fa-solid fa-eye"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Confirm Password</label>
+
+          <div class="password-box">
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm password"
+              required
+            />
+
+            <span class="toggle-password" id="toggleConfirmPassword">
+              <i class="fa-solid fa-eye"></i>
+            </span>
+          </div>
+        </div>
+
+        <button type="submit" class="login-btn">Create Account</button>
+      </form>
+
+      <p class="switch-page">
+        Already have an account?
+        <a href="login.html"> Login here </a>
+      </p>
+    </div>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>FinTrack Pro</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -47,8 +47,8 @@
           <div class="user-info">
             <span class="username">Srashti</span>
             <button class="logout-btn">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                Logout
+              <i class="fa-solid fa-right-from-bracket"></i>
+              Logout
             </button>
           </div>
         </header>
@@ -169,46 +169,36 @@
         <!-- settings -->
 
         <section class="settings-page" id="settingsPage">
-    <h1>Settings</h1>
-    <p class="subtitle">
-        Manage your account profile and application preferences
-    </p>
+          <h1>Settings</h1>
+          <p class="subtitle">
+            Manage your account profile and app formatting.
+          </p>
 
-    <div class="panel settings-panel">
+          <div class="panel settings-panel">
+            <h2>Profile Details</h2>
 
-        <h2>Profile Details</h2>
+            <div class="settings-grid">
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
 
-        <div class="settings-grid">
+                <input id="fullName" type="text" value="srashti" />
+              </div>
 
-            <div class="form-group">
-                <label>Full Name</label>
-                <input
-                    type="text"
-                    id="fullName"
-                    placeholder="Enter your name"
-                />
-            </div>
-
-            <div class="form-group">
-                <label>Primary Currency</label>
+              <div class="form-group">
+                <label for="currency">Primary Currency</label>
 
                 <select id="currency">
-                    <option>USD ($)</option>
-                    <option>INR (₹)</option>
-                    <option>EUR (€)</option>
-                    <option>GBP (£)</option>
+                  <option>USD ($)</option>
+                  <option>INR (₹)</option>
+                  <option>EUR (€)</option>
+                  <option>GBP (£)</option>
                 </select>
+              </div>
             </div>
 
-        </div>
-
-        <button class="save-btn">
-            <i class="fa-solid fa-floppy-disk"></i>
-            Save Changes
-        </button>
-
-    </div>
-</section>
+            <button class="save-btn">Save Changes</button>
+          </div>
+        </section>
       </main>
     </div>
     <div class="modal" id="transactionModal">
@@ -278,6 +268,6 @@
         </form>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="js/dashboard.js"></script>
   </body>
 </html>
