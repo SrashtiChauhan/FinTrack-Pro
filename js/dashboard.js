@@ -22,10 +22,14 @@ if (logoutBtn) {
 const modal = document.getElementById("transactionModal");
 const addBtn = document.querySelector(".add-btn");
 const closeBtn = document.querySelector(".close");
+const dateInput = document.getElementById("date");
 
 if (addBtn && modal) {
   addBtn.onclick = () => {
     modal.classList.add("active");
+    if (dateInput) {
+      dateInput.value = new Date().toISOString().split("T")[0];
+    }
   };
 }
 
@@ -34,7 +38,9 @@ if (closeBtn && modal) {
     modal.classList.remove("active");
   };
 }
-
+if (dateInput) {
+  dateInput.value = new Date().toISOString().split("T")[0];
+}
 window.onclick = (e) => {
   if (modal && e.target === modal) {
     modal.classList.remove("active");
@@ -109,6 +115,7 @@ if (transactionForm) {
     transactions.push(transaction);
     localStorage.setItem("transactions", JSON.stringify(transactions));
     transactionForm.reset();
+    dateInput.value = new Date().toISOString().split("T")[0];
     modal.classList.remove("active");
     renderTransactions();
   });
