@@ -1,7 +1,7 @@
 const currentUser = localStorage.getItem("currentUser");
 
 if (!currentUser) {
-  window.location.href="dashboard.html";
+  window.location.href = "login.html";
 }
 
 const username = document.getElementById("currentUsername");
@@ -15,7 +15,7 @@ const logoutBtn = document.querySelector(".logout-btn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("currentUser");
-    window.location.href="dashboard.html";
+    window.location.href = "login.html";
   });
 }
 
