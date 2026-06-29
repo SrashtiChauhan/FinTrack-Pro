@@ -98,3 +98,54 @@ if (registerForm) {
     window.location.href = "login.html";
   });
 }
+
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById("loginUsername").value.trim();
+
+    const password = document.getElementById("loginPassword").value;
+
+    const remember = document.getElementById("rememberMe").checked;
+
+    // get users
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // find matching user
+    const user = users.find(
+      (u) => u.username === username && u.password === password,
+    );
+
+    if (!user) {
+      alert("Invalid username or password!");
+      return;
+    }
+
+    // Save logged in user
+    localStorage.setItem("currentUser", username);
+
+    // Remember Me
+    if (remember) {
+      localStorage.setItem("rememberUser", username);
+    } else {
+      localStorage.removeItem("rememberUser");
+    }
+
+    alert("Login Successful!");
+
+    window.location.href = "index.html";
+  });
+}
+// Auto Fill Remember Me
+
+window.addEventListener("DOMContentLoaded", () => {
+  const rememberedUser = localStorage.getItem("rememberUser");
+
+  if (rememberedUser) {
+    document.getElementById("loginUsername").value = rememberedUser;
+    document.getElementById("rememberMe").checked = true;
+  }
+});
