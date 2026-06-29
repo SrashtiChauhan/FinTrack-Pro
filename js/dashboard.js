@@ -64,6 +64,30 @@ if (dashboardBtn && settingsBtn) {
     settingsPage.classList.add("active");
   });
 }
+
+function renderTransactions() {
+  const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+
+  const table = document.getElementById("transactionTable");
+
+  table.innerHTML = "";
+
+  transactions.forEach((transaction) => {
+    table.innerHTML += `
+        <tr>
+            <td>${transaction.date}</td>
+            <td>${transaction.description}</td>
+            <td>${transaction.category}</td>
+            <td>${transaction.type === "income" ? "+" : "-"}$${transaction.amount}</td>
+            <td>
+            <button class="delete-btn" data-id="${transaction.id}">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+            </td>
+        </tr>
+    `;
+  });
+}
 // transaction
 
 const transactionForm = document.getElementById("transactionForm");
@@ -86,6 +110,6 @@ if (transactionForm) {
     localStorage.setItem("transactions", JSON.stringify(transactions));
     transactionForm.reset();
     modal.classList.remove("active");
-    console.log(transactions);
+    renderTransactions();
   });
 }
